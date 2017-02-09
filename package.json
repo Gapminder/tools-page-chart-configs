@@ -1,0 +1,23 @@
+{
+  "name": "vizabi-config-systema_globalis",
+  "version": "1.0.0",
+  "description": "This is a collection of vizabi tools configs for the specific dataset open-numbers/ddf--gapminder--systema_globalis",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vizabi/vizabi-config-systema_globalis.git"
+  },
+  "keywords": [
+    "vizabi",
+    "config"
+  ],
+  "author": "Angie",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/vizabi/vizabi-config-systema_globalis/issues"
+  },
+  "homepage": "https://github.com/vizabi/vizabi-config-systema_globalis#readme"
+}
