@@ -9,15 +9,16 @@
       "dim": "year"
     },
     "entities": {
-      "dim": "country_code",
+      "dim": "geo",
       "show": {
-        "country_code": {
-          "$in": ["903","904","905","908","909","935"]
-        }
+        "is--world_4region": true
       }
     },
     "entities_colorlegend": {
-      "dim": "country_code"
+      "dim": "geo",
+      "show": {
+        "is--world_4region": true
+      }
     },
     "entities_age": {
       "dim": "age",
@@ -58,7 +59,7 @@
       },
       "color": {
         "use": "property",
-        "which": "country_code",
+        "which": "world_4region",
         "scaleType": "ordinal",
         "spaceRef": "entities",
         "allow": {
@@ -76,7 +77,10 @@
       }
     },
     "entities_allpossible": {
-      "dim": "country_code"
+      "dim": "geo",
+      "show": {
+        "is--world_4region": true
+      }
     },
     "marker_allpossible": {
       "space": ["entities_allpossible"],
