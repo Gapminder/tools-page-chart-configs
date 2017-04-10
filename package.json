@@ -3,7 +3,11 @@
   "version": "1.2.0",
   "description": "This is a collection of vizabi tools configs for the specific dataset open-numbers/ddf--gapminder--systema_globalis",
   "main": "index.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
+    "build": "node build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,5 +23,10 @@
   "bugs": {
     "url": "https://github.com/vizabi/vizabi-config-systema_globalis/issues"
   },
-  "homepage": "https://github.com/vizabi/vizabi-config-systema_globalis#readme"
+  "homepage": "https://github.com/vizabi/vizabi-config-systema_globalis#readme",
+  "devDependencies": {
+    "compare-version": "^0.1.2",
+    "rimraf": "^2.6.1",
+    "shelljs": "^0.7.7"
+  }
 }
