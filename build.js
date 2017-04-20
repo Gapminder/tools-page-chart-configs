@@ -9,7 +9,7 @@ rm.sync(outputFilesPath);
 fs.mkdirSync(outputFilesPath);
 
 fs.readdirSync(filesPath).forEach((filename) => {
-  const basename = path.parse(filename).name;
+  const basename = `Config${path.parse(filename).name}`;
 
   const content = fs.readFileSync(path.resolve(filesPath, filename));
   const jsContent = `var ${basename} = ${content};`;
