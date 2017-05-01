@@ -5,20 +5,28 @@
       "delayThresholdX2": 0,
       "delayThresholdX4": 0,
       "immediatePlay": true,
-      "delay": 1000,
+      "delay": 200,
       "dim": "year"
     },
     "entities": {
       "dim": "geo",
       "show": {
-        "is--world_4region": true
+        "geo": {
+          "$in": ["world"]
+        }
       }
     },
-    "entities_colorlegend": {
+    "entities_geodomain": {
       "dim": "geo",
       "show": {
-        "is--world_4region": true
-      }
+        "geo": {
+          "$in": ["world"]
+        }
+      },
+      "skipFilter": true
+    },
+    "entities_colorlegend": {
+      "dim": "geo"
     },
     "entities_age": {
       "dim": "age",
@@ -30,11 +38,12 @@
       "grouping": 1
     },
     "entities_side": {
-      "dim": "gender",
+      "show": {},
+      "dim": null,
       "skipFilter": true
     },
     "marker": {
-      "space": ["entities", "time", "entities_side", "entities_age"],
+      "space": ["entities", "time", "entities_side", "entities_age", "entities_geodomain"],
       "label_stack": {
         "use": "property",
         "spaceRef": "entities",
@@ -65,11 +74,14 @@
         "allow": {
           "scales": ["ordinal"]
         },
+        "palette": {
+          "world": "#ffb600"
+        },
         "syncModels": ["marker_colorlegend"]
       },
       "side": {
-        "use": "property",
-        "which": "gender",
+        "use": "constant",
+        "which": "_default",
         "spaceRef": "entities_side",
         "allow": {
           "scales": ["ordinal"]
@@ -77,20 +89,23 @@
       }
     },
     "entities_allpossible": {
-      "dim": "geo",
-      "show": {
-        "is--world_4region": true
-      }
+      "dim": "geo"
     },
     "marker_allpossible": {
       "space": ["entities_allpossible"],
       "label": {
         "use": "property",
         "which": "name"
+      },
+      "color": {
+        "use": "property",
+        "which": "world_4region"
       }
     },
     "entities_allpossibleside": {
-      "dim": "gender"
+      "show": {},
+      "dim": null,
+      "skipFilter": false
     },
     "marker_allpossibleside": {
       "space": ["entities_allpossibleside"],
