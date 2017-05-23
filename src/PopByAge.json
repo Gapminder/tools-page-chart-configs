@@ -1,6 +1,9 @@
 {
   "state": {
     "time": {
+      "startOrigin": "1800",
+      "endOrigin": "2100",
+      "value": "2017",
       "step": 1,
       "delayThresholdX2": 0,
       "delayThresholdX4": 0,
@@ -32,7 +35,7 @@
       "dim": "age",
       "show": {
         "age": {
-          "$nin": ["80plus","100plus"]
+          "$nin": ["80plus", "100plus"]
         }
       },
       "grouping": 1
@@ -129,7 +132,7 @@
         "which": "shape_lores_svg"
       }
     },
-    "entities_tags": { },
+    "entities_tags": {},
     "marker_tags": {
       "space": ["entities_tags"],
       "label": {},
