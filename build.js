@@ -14,6 +14,6 @@ fs.readdirSync(filesPath).forEach((filename) => {
   const content = fs.readFileSync(path.resolve(filesPath, filename));
   const jsContent = `var ${basename} = ${content};`;
 
-  fs.writeFileSync(path.resolve(outputFilesPath, filename), filename);
+  fs.writeFileSync(path.resolve(outputFilesPath, filename), content);
   fs.writeFileSync(path.resolve(outputFilesPath, basename + '.js'), jsContent);
 });
