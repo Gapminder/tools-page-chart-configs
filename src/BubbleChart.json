@@ -35,10 +35,10 @@
       "axis_x": {
         "use": "indicator",
         "scaleType": "log",
-        "domainMax": 150000,
+        "domainMax": 180000,
         "domainMin": 300,
         "zoomedMax": 150000,
-        "zoomedMin": 300,
+        "zoomedMin": 400,
         "which": "income_per_person_gdppercapita_ppp_inflation_adjusted"
       },
       "size": {
