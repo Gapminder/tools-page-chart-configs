@@ -89,7 +89,14 @@
       }
     },
     "entities_allpossible": {
-      "dim": "geo"
+      "dim": "geo",
+       "show": {
+         "$or": [
+           {"is--country": true},
+           {"is--global": true},
+           {"is--world_4region": true}
+         ]
+      }
     },
     "marker_allpossible": {
       "space": ["entities_allpossible"],
