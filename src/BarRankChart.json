@@ -9,7 +9,7 @@
     "entities": {
       "dim": "geo",
       "show": {
-        "is--country": true
+        "un_state": true
       }
     },
     "entities_colorlegend": {
@@ -21,7 +21,7 @@
     "entities_allpossible": {
       "dim": "geo",
       "show": {
-        "is--country": true
+        "un_state": true
       }
     },
     "marker_allpossible": {

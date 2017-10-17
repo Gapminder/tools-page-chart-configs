@@ -92,7 +92,7 @@
       "dim": "geo",
        "show": {
          "$or": [
-           {"is--country": true},
+           {"un_state": true},
            {"is--global": true},
            {"is--world_4region": true}
          ]

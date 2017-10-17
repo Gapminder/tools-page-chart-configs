@@ -3,7 +3,7 @@
     "entities": {
       "dim": "geo",
       "show": {
-        "is--country": true
+        "un_state": true
       }      
     },
     "entities_colorlegend": {
