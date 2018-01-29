@@ -2,9 +2,10 @@
   "state": {
     "entities": {
       "dim": "geo",
-      "show": {
+      "filter": {
         "un_state": true
-      }      
+      },
+      "show": {}
     },
     "entities_colorlegend": {
       "dim": "world_4region"

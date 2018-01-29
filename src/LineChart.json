@@ -8,6 +8,9 @@
     },
     "entities": {
       "dim": "geo",
+      "filter": {
+        "un_state": true
+      },
       "show": {
         "geo": { "$in": ["usa", "rus", "chn", "nga"] }
       }
@@ -41,21 +44,8 @@
         "syncModels": ["marker_colorlegend"]
       }
     },
-    "entities_allpossible": {
-      "dim": "geo",
-      "show": {
-        "un_state": true
-      }
-    },
     "entities_tags": {
       "dim": "tag"
-    },
-    "marker_allpossible": {
-      "space": ["entities_allpossible"],
-      "label": {
-        "use": "property",
-        "which": "name"
-      }
     },
     "marker_colorlegend": {
       "space": ["entities_colorlegend"],
