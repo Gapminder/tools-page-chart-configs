@@ -3,7 +3,7 @@
     "entities": {
       "dim": "geo",
       "filter": {
-        "un_state": true
+        "geo": {"un_state": true}
       },
       "show": {}
     },
@@ -14,9 +14,6 @@
       "dim": "tag"
     },
     "time": {
-      "startOrigin": "1800",
-      "endOrigin": "2015",
-      "value": "2015",
       "dim": "time"
     },
     "marker": {

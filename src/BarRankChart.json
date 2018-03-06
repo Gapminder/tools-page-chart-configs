@@ -9,7 +9,7 @@
     "entities": {
       "dim": "geo",
       "filter": {
-        "un_state": true
+        "geo": {"un_state": true}
       },
       "show": {}
     },

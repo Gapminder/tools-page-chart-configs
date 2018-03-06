@@ -11,11 +11,11 @@
     "entities": {
       "dim": "geo",
       "filter": {
-         "$or": [
+         "geo": {"$or": [
            {"un_state": true},
            {"is--global": true},
            {"is--world_4region": true}
-         ]
+         ]}
       },
       "show": {
         "geo": {
