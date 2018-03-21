@@ -101,7 +101,8 @@
             {"min": 24000, "max": null, "label": "incomegroups/level4"}
           ]
         }
-      },
+      }
+     },
     "splash": true
   }
 }
