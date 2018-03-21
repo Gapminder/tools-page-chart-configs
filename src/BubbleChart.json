@@ -90,6 +90,18 @@
       "doubtDomain": [1800, 1950, 2015],
       "doubtRange": [1.0, 0.3, 0.2]
     },
+    "chart": {
+      "decorations": {
+        "enabled": true,
+        "xAxisGroups": {
+          "income_per_person_gdppercapita_ppp_inflation_adjusted": [
+            {"min": null, "max": 1500, "label": "incomegroups/level1"},
+            {"min": 1500, "max": 6000, "label": "incomegroups/level2"},
+            {"min": 6000, "max": 24000, "label": "incomegroups/level3"},
+            {"min": 24000, "max": null, "label": "incomegroups/level4"}
+          ]
+        }
+      },
     "splash": true
   }
 }
