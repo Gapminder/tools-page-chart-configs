@@ -21,7 +21,13 @@
         "geo": {
           "$in": ["world"]
         }
-      }
+      },
+      "showFallback": {
+        "geo": {
+          "$in": ["world"]
+        }
+      },
+      showItemsMaxCount: 10
     },
     "entities_geodomain": {
       "dim": "geo",
