@@ -95,10 +95,10 @@
         "enabled": true,
         "xAxisGroups": {
           "income_per_person_gdppercapita_ppp_inflation_adjusted": [
-            {"min": null, "max": 1500, "label": "incomegroups/level1"},
-            {"min": 1500, "max": 6000, "label": "incomegroups/level2"},
-            {"min": 6000, "max": 24000, "label": "incomegroups/level3"},
-            {"min": 24000, "max": null, "label": "incomegroups/level4"}
+            {"min": null, "max": 2650, "label": "incomegroups/level1"},
+            {"min": 2650, "max": 8000, "label": "incomegroups/level2"},
+            {"min": 8000, "max": 24200, "label": "incomegroups/level3"},
+            {"min": 24200, "max": null, "label": "incomegroups/level4"}
           ]
         }
       }
