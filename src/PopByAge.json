@@ -19,7 +19,7 @@
       },
       "show": { "geo": { "$in": ["world"] } },
       "showFallback": { "geo": { "$in": ["world"] } },
-      showItemsMaxCount: 10
+      "showItemsMaxCount": 10
     },
     "entities_geodomain": {
       "dim": "geo",
@@ -113,6 +113,11 @@
     }
   },
   "ui": {
-    "splash": true
+    "splash": true,
+    "dialogs": {
+      "dialog": {
+        "find": {"showTabs": {"geo": "open"}}
+      }
+    }
   }
 }
