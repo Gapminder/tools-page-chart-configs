@@ -41,9 +41,6 @@
         "syncModels": ["marker_colorlegend"]
       }
     },
-    "entities_tags": {
-      "dim": "tag"
-    },
     "marker_colorlegend": {
       "space": ["entities_colorlegend"],
       "opacityRegular": 0.8,
@@ -59,17 +56,6 @@
       "hook_geoshape": {
         "use": "property",
         "which": "shape_lores_svg"
-      }
-    },
-    "marker_tags": {
-      "space": ["entities_tags"],
-      "label": {
-        "use": "property",
-        "which": "name"
-      },
-      "hook_parent": {
-        "use": "property",
-        "which": "parent"
       }
     }
   },
