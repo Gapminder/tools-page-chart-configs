@@ -32,7 +32,7 @@
         "scaleType": "log",
         "domainMax": 180000,
         "domainMin": 300,
-        "zoomedMax": 150000,
+        "zoomedMax": 96000,
         "zoomedMin": 400,
         "which": "income_per_person_gdppercapita_ppp_inflation_adjusted"
       },
@@ -87,10 +87,10 @@
         "enabled": true,
         "xAxisGroups": {
           "income_per_person_gdppercapita_ppp_inflation_adjusted": [
-            {"min": null, "max": 2650, "label": "incomegroups/level1"},
-            {"min": 2650, "max": 8000, "label": "incomegroups/level2"},
-            {"min": 8000, "max": 24200, "label": "incomegroups/level3"},
-            {"min": 24200, "max": null, "label": "incomegroups/level4"}
+            {"min": null, "max": 2650, "label": "incomegroups/level1", "label_short": "incomegroups/level1short"},
+            {"min": 2650, "max": 8000, "label": "incomegroups/level2", "label_short": "incomegroups/level2short"},
+            {"min": 8000, "max": 24200, "label": "incomegroups/level3", "label_short": "incomegroups/level3short"},
+            {"min": 24200, "max": null, "label": "incomegroups/level4", "label_short": "incomegroups/level4short"}
           ]
         }
       }

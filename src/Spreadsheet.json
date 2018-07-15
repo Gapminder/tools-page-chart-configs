@@ -1,0 +1,33 @@
+{ 
+  "state": {
+    "entities": {
+      "dim": "geo",
+      "filter": {
+        "geo": {"un_state": true}
+      },
+      "show": {}
+    },
+    "time": {
+      "dim": "time"
+    },
+    "marker": {
+      "space": ["entities", "time"],
+      "label": {
+        "use": "property",
+        "which": "name"
+      },
+      "hook": {
+        "use": "indicator",
+        "which": null
+      }
+    }
+  },
+  "ui": {
+    "treemenu": {
+      "folderStrategyByDataset": {
+        "data": "spread",
+        "data_wdi": "folder:other_datasets"
+      }
+    }
+  }
+}
