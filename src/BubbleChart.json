@@ -95,6 +95,7 @@
         }
       }
      },
+    "helpTranslateEnabled": true,
     "splash": true
   }
 }

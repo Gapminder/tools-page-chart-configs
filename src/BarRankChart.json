@@ -63,6 +63,7 @@
       "doubtDomain": [1800, 1950, 2015],
       "doubtRange": [1.0, 0.8, 0.6]
     },
+    "helpTranslateEnabled": true,
     "splash": true
   }
 }

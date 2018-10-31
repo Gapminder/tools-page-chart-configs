@@ -107,6 +107,7 @@
     }
   },
   "ui": {
+    "helpTranslateEnabled": true,
     "splash": true,
     "dialogs": {
       "dialog": {
