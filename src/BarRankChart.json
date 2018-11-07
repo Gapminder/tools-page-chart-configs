@@ -4,9 +4,9 @@
       "dim": "time"
     },
     "entities": {
-      "dim": "geo",
+      "dim": "country",
       "filter": {
-        "geo": {"un_state": true}
+        "country": {"un_state": true}
       },
       "show": {}
     },
@@ -56,6 +56,7 @@
     "treemenu": {
       "folderStrategyByDataset": {
         "data": "spread",
+        "data_fasttrack": "spread",
         "data_wdi": "folder:other_datasets"
       }
     },
