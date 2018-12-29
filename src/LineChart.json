@@ -1,7 +1,8 @@
 {
   "state": {
     "time": {
-      "dim": "time"
+      "dim": "time",
+      "showForecast": false
     },
     "entities": {
       "dim": "country",
@@ -60,6 +61,9 @@
     }
   },
   "ui": {
+    "chart": {
+      "showForecastOverlay": true
+    },
     "treemenu": {
       "folderStrategyByDataset": {
         "data": "spread",

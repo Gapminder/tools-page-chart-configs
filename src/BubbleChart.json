@@ -11,7 +11,8 @@
       "dim": "world_4region"
     },
     "time": {
-      "dim": "time"
+      "dim": "time",
+      "showForecast": false
     },
     "marker": {
       "space": ["entities", "time"],
@@ -84,6 +85,7 @@
       "doubtRange": [1.0, 0.3, 0.2]
     },
     "chart": {
+      "showForecastOverlay": true,
       "decorations": {
         "enabled": true,
         "xAxisGroups": {

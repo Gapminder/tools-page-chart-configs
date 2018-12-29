@@ -2,7 +2,8 @@
   "state": {
     "time": {
       "value": "2015",
-      "dim": "time"
+      "dim": "time",
+      "showForecast": false
     },
     "entities": {
       "dim": "country",
@@ -78,6 +79,9 @@
     }
   },
   "ui": {
+    "chart": {
+      "showForecastOverlay": true
+    },
     "treemenu": {
       "folderStrategyByDataset": {
         "data": "spread",

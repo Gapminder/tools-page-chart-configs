@@ -6,7 +6,8 @@
       "delayThresholdX4": 0,
       "immediatePlay": true,
       "delay": 200,
-      "dim": "year"
+      "dim": "year",
+      "showForecast": true
     },
     "entities": {
       "dim": "geo",
@@ -108,6 +109,9 @@
   },
   "ui": {
     "splash": true,
+    "chart": {
+      "showForecastOverlay": false
+    },
     "dialogs": {
       "dialog": {
         "find": {"showTabs": {"geo": "open"}}
