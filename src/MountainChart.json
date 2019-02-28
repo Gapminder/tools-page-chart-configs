@@ -1,7 +1,6 @@
 {
   "state": {
     "time": {
-      "value": "2015",
       "dim": "time",
       "showForecast": false
     },
