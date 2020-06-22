@@ -2,7 +2,8 @@
   "state": {
     "time": {
       "dim": "time",
-      "showForecast": true
+      "showForecast": true,
+      "value": 2019
     },
     "entities": {
       "dim": "global",

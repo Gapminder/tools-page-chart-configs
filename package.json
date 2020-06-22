@@ -1,6 +1,6 @@
 {
   "name": "vizabi-config-systema_globalis",
-  "version": "2.10.0",
+  "version": "2.10.2",
   "description": "This is a collection of vizabi tools configs for the specific dataset open-numbers/ddf--gapminder--systema_globalis",
   "main": "index.js",
   "files": [
