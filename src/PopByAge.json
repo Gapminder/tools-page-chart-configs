@@ -1,121 +1,164 @@
 {
-  "state": {
-    "time": {
-      "step": 1,
-      "delayThresholdX2": 0,
-      "delayThresholdX4": 0,
-      "immediatePlay": true,
-      "delay": 200,
-      "dim": "year",
-      "showForecast": true
-    },
-    "entities": {
-      "dim": "geo",
-      "filter": {
-         "geo": {"$or": [
-           {"un_state": true},
-           {"is--global": true},
-           {"is--world_4region": true}
-         ]}
-      },
-      "show": { "geo": { "$in": ["world"] } },
-      "showFallback": { "geo": { "$in": ["world"] } },
-      "showItemsMaxCount": 10
-    },
-    "entities_geodomain": {
-      "dim": "geo",
-      "show": {
-        "geo": {
-          "$in": ["world"]
+  "model": {
+    "markers": {
+      "pyramid": {
+        "data": {
+          "source": "pop",
+          "space": ["geo", "year", "age"],
+          "filter": {
+            "dimensions": {
+              "geo": {
+                "geo": {
+                  "$in": ["world"]
+                }
+              }
+            }
+          }
+        },
+        "requiredEncodings": ["x"],
+        "encoding": {
+          "selected": {
+            "modelType": "selection"
+          },
+          "highlighted": {
+            "modelType": "selection"
+          },
+          "x": {
+            "data": {
+              "concept": "population",
+              "space": ["geo", "year", "age"]
+            }
+          },
+          "y": {
+            "data": {
+              "concept": "age",
+              "space": ["age"]
+            },
+            "scale": { 
+              "type": "linear",
+              "domain": [0,100]}
+          },
+          "aggregate": {
+            "modelType": "aggregate",
+            "data": {
+              "concept": "population",
+              "space": ["geo", "year", "age"]
+            },
+            "measures": ["x"],
+            "grouping": {
+              "age": {
+                "grouping": 1
+              }
+            }
+          },
+          "order": {
+            "modelType": "order",
+            "direction": "desc",
+            "data": {
+              "ref": "markers.pyramid.config.encoding.y.data"
+            }
+          },
+          "label": {
+            "data": {
+              "modelType": "entityPropertyDataConfig",
+              "concept": "name"
+            }
+          },
+          "frame": {
+            "modelType": "frame",
+            "value": "2019",
+            "splash": true,
+            "data": {
+              "concept": "year",
+              "space": ["geo", "year", "age"]
+            }
+          },
+          "color": {
+            "data": {
+              "space": ["geo"],
+              "concept": "world_4region"
+            },
+            "scale": {
+              "modelType": "color",
+              "type": "ordinal"
+            }
+          },
+          "side": {
+            "data": {
+              "constant": "true"
+            }
+          },
+          "facet": {
+            "modelType": "grouping",
+            "data": { "concept": "geo" },
+            "rowEncoding": "side",
+            "columnEncoding": "row"
+          }
         }
       },
-      "skipFilter": true
-    },
-    "entities_colorlegend": {
-      "dim": "world_4region"
-    },
-    "entities_age": {
-      "dim": "age",
-      "show": {},
-      "filter": {"age": {"age": {"$nin": ["80plus", "100plus"] } } },
-      "grouping": 1
-    },
-    "entities_side": {
-      "show": {},
-      "dim": null,
-      "skipFilter": true
-    },
-    "marker": {
-      "space": ["entities", "time", "entities_side", "entities_age", "entities_geodomain"],
-      "label_stack": {
-        "use": "property",
-        "spaceRef": "entities",
-        "which": "name"
-      },
-      "label_side": {
-        "use": "property",
-        "spaceRef": "entities_side",
-        "which": "name"
-      },
-      "axis_y": {
-        "use": "property",
-        "which": "age",
-        "spaceRef": "entities_age",
-        "domainMax": 100,
-        "domainMin": 0,
-        "_important": false
-      },
-      "axis_x": {
-        "use": "indicator",
-        "which": "population"
-      },
-      "color": {
-        "use": "property",
-        "which": "world_4region",
-        "scaleType": "ordinal",
-        "spaceRef": "entities",
-        "allow": {
-          "scales": ["ordinal"]
+      "legend": {
+        "data": {
+          "ref": {
+            "transform": "entityConceptSkipFilter",
+            "path": "markers.pyramid.encoding.color"
+          }
         },
-        "palette": {
-          "world": "#ffb600"
-        },
-        "syncModels": ["marker_colorlegend"]
-      },
-      "side": {
-        "use": "constant",
-        "which": "_default",
-        "spaceRef": "entities_side",
-        "allow": {
-          "scales": ["ordinal"]
+        "encoding": {
+          "color": {
+            "data": {
+              "concept": { "ref": "markers.pyramid.encoding.color.data.concept" },
+              "constant": { "ref": "markers.pyramid.encoding.color.data.constant" }
+            },
+            "scale": {
+              "modelType": "color",
+              "palette": { "ref": "markers.pyramid.encoding.color.scale.palette" },
+              "domain": null,
+              "range": null,
+              "type": null,
+              "zoomed": null,
+              "zeroBaseline": false,
+              "clamp": false,
+              "allowedTypes": null
+            }
+          },
+          "name": { "data": { "concept": "name" } },
+          "rank": { "data": { "concept": "rank" } },
+          "map": { "data": { "concept": "shape_lores_svg" } }
         }
-      }
-    },
-    "marker_colorlegend": {
-      "space": ["entities_colorlegend"],
-      "label": {
-        "use": "property",
-        "which": "name"
-      },
-      "hook_rank": {
-        "use": "property",
-        "which": "rank"
-      },
-      "hook_geoshape": {
-        "use": "property",
-        "which": "shape_lores_svg"
       }
     }
   },
   "ui": {
-    "splash": true,
     "chart": {
-      "showForecastOverlay": false
+      "mode": "smallMultiples",
+      "stacked": true,
+      "inpercent": false,
+      "flipSides": true,
+      "lockActive": true,
+      "lockNonSelected": 0,
+
+      "showForecast": true,
+      "showForecastOverlay": false,
+      "pauseBeforeForecast": false,
+      "endBeforeForecast": "2020"
+    },
+    "buttons": {
+      "buttons": ["colors", "find", "lock", "inpercent", "moreoptions", "sidebarcollapse", "fullscreen"]
     },
     "dialogs": {
-      "dialog": {
-        "find": {"showTabs": {"geo": "open"}}
+      "dialogs": {
+        "popup": ["timedisplay", "colors", "find", "moreoptions"],
+        "sidebar": ["timedisplay", "colors", "find", "grouping"],
+        "moreoptions": ["opacity", "speed", "grouping", "colors", "presentation", "about"]
+      },
+      "find": {
+        "panelMode": "show",
+        "showTabs": {
+          "geo": "open fully"
+        },
+        "enablePicker": false
       }
-    }
+    },
+    "presentation": false
   }
 }

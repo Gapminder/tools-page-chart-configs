@@ -1,33 +1,20 @@
 { 
-  "state": {
-    "entities": {
-      "dim": "country",
-      "filter": {
-        "country": {"un_state": true}
-      },
-      "show": {}
-    },
-    "time": {
-      "dim": "time"
-    },
-    "marker": {
-      "space": ["entities", "time"],
-      "label": {
-        "use": "property",
-        "which": "name"
-      },
-      "hook": {
-        "use": "indicator",
-        "which": null
+  "model": {
+    "markers": {
+      "spreadsheet": {
+        "data": {
+          "source": "sg"
+        }
       }
     }
   },
   "ui": {
-    "treemenu": {
+    "chart": {},
+    "tree-menu": {
       "folderStrategyByDataset": {
-        "data": "spread",
-        "data_fasttrack": "spread",
-        "data_wdi": "folder:other_datasets"
+        "sg": "spread",
+        "fasttrack": "spread",
+        "wdi": "folder:other_datasets"
       }
     }
   }

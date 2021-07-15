@@ -1,83 +1,177 @@
 {
-  "state": {
-    "time": {
-      "dim": "time",
-      "showForecast": false
-    },
-    "entities": {
-      "dim": "country",
-      "filter": {
-        "country": {"un_state": true}
-      },
-      "show": {
-        "country": { "$in": ["usa", "rus", "chn", "nga"] }
-      }
-    },
-    "entities_colorlegend": { 
-      "dim": "world_4region"
-    },
-    "marker": {
-      "space": ["entities", "time"],
-      "label": {
-        "use": "property",
-        "which": "name"
-      },
-      "axis_y": {
-        "use": "indicator",
-        "which": "income_per_person_gdppercapita_ppp_inflation_adjusted",
-        "scaleType": "log"
-      },
-      "axis_x": {
-        "use": "indicator",
-        "which": "time",
-        "scaleType": "time"
-      },
-      "color": {
-        "use": "property",
-        "which": "world_4region",
-        "scaleType": "ordinal",
-        "allow": {
-          "scales": ["ordinal"]
+  "model": {
+    "markers": {
+      "line": {
+        "requiredEncodings": ["x", "y"],
+        "data": {
+          "filter": {
+            "dimensions": {
+              "country": {
+                "country": {
+                  "$in": ["usa", "chn", "rus", "nga"]
+                }
+              }
+            }
+          },
+          "source": "sg",
+          "space": ["country", "time"]
         },
-        "syncModels": ["marker_colorlegend"]
-      }
-    },
-    "marker_colorlegend": {
-      "space": ["entities_colorlegend"],
-      "opacityRegular": 0.8,
-      "opacityHighlightDim": 0.3, 
-      "label": {
-        "use": "property",
-        "which": "name"
+        "encoding": {
+          "unstate": {
+            "data": {
+              "space": ["country"],
+              "concept": "un_state"
+            }
+          },
+          "selected": {
+            "modelType": "selection"
+          },
+          "highlighted": {
+            "modelType": "selection"
+          },
+          "y": {
+            "data": {
+              "concept": "income_per_person_gdppercapita_ppp_inflation_adjusted"
+            },
+            "scale": {
+              "type": "log",
+              "allowedTypes": ["linear", "log", "genericLog", "pow"]
+            }
+          },
+          "x": {
+            "data": {
+              "concept": "time"
+            },
+            "scale": {
+              "type": "time",
+              "allowedTypes": ["linear", "log", "genericLog", "pow", "time"]
+            }
+          },
+          "color": {
+            "data": {
+              "allow": {
+                "space": {
+                  "filter": {
+                    "concept_type": { "$ne": "time" }
+                  }
+                }
+              },
+              "space": ["country"],
+              "concept": "world_4region"
+            },
+            "scale": {
+              "modelType": "color",
+              "type": "ordinal"
+            }
+          },
+          "label": {
+            "data": {
+              "modelType": "entityPropertyDataConfig",
+              "concept": "name"
+            }
+          },
+          "frame": {
+            "modelType": "frame",
+            "speed": 200,
+            "value": "2019",
+            "data": {
+              "concept": "time"
+            }
+          },
+          "repeat": {
+            "modelType": "repeat",
+            "allowEnc": ["y", "x"]
+          }
+        }
       },
-      "hook_rank": {
-        "use": "property",
-        "which": "rank"
-      },
-      "hook_geoshape": {
-        "use": "property",
-        "which": "shape_lores_svg"
+      "legend": {
+        "data": {
+          "ref": {
+            "transform": "entityConceptSkipFilter",
+            "path": "markers.line.encoding.color"
+          }
+        },
+        "encoding": {
+          "color": {
+            "data": {
+              "concept": { "ref": "markers.line.encoding.color.data.concept" },
+              "constant": { "ref": "markers.line.encoding.color.data.constant" }
+            },
+            "scale": {
+              "modelType": "color",
+              "palette": { "ref": "markers.line.encoding.color.scale.palette" },
+              "domain": null,
+              "range": null,
+              "type": null,
+              "zoomed": null,
+              "zeroBaseline": false,
+              "clamp": false,
+              "allowedTypes": null
+            }
+          },
+          "name": { "data": { "concept": "name" } },
+          "rank": { "data": { "concept": "rank" } },
+          "map": { "data": { "concept": "shape_lores_svg" } }
+        }
       }
     }
   },
   "ui": {
-    "chart": {
-      "showForecastOverlay": true
+    "locale": { "id": "en" },
+    "layout": { "projector": false },
+
+    "time-slider": {
+      "show_value": true
     },
-    "treemenu": {
-      "folderStrategyByDataset": {
-        "data": "spread",
-        "data_fasttrack": "spread",
-        "data_wdi": "folder:other_datasets"
+    "buttons": {
+      "buttons": ["colors", "find", "moreoptions", "presentation", "sidebarcollapse", "fullscreen"]
+    },
+    "dialogs": {
+      "dialogs": {
+        "popup": ["colors", "find", "moreoptions"],
+        "sidebar": ["colors", "find"],
+        "moreoptions": ["opacity", "speed", "colors", "axes", "repeat", "presentation", "about"]
+      },
+      "find": {
+        "panelMode": "show",
+        "showTabs": {
+          "country": "open fully"
+        }
       }
     },
-    "datawarning": {
+    "chart": {
+      "showForecast": false,
+      "showForecastOverlay": true,
+      "pauseBeforeForecast": true,
+      "endBeforeForecast": "2019",
+      "opacityHighlight": 1.0,
+      "opacitySelect": 1.0,
+      "opacityHighlightDim": 0.1,
+      "opacitySelectDim": 0.3,
+      "opacityRegular": 0.8,
+      "hideXAxisValue": false,
+      "curve": "curveMonotoneX",
+      "whenHovering": {
+        "showTooltip": false,
+        "hideVerticalNow": false,
+        "showProjectionLineX": false,
+        "showProjectionLineY": false,
+        "higlightValueX": false,
+        "higlightValueY": false
+      },
+      "labels": {
+        "min_number_of_entities_when_values_hide": 3
+      }
+    },
+    "data-warning": {
       "doubtDomain": [1800, 1950, 2015],
       "doubtRange": [1.0, 0.3, 0.2]
     },
-    "dialogs": {
-      "dialog": {
-        "find": {"showTabs": {"country": "open"}}
+    "tree-menu": {
+      "folderStrategyByDataset": {
+        "sg": "spread",
+        "fasttrack": "spread",
+        "wdi": "folder:other_datasets"
       }
     }
   }

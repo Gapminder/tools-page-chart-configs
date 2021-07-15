@@ -1,94 +1,200 @@
 {
-  "state": {
-    "time": {
-      "dim": "time",
-      "showForecast": false
-    },
-    "entities": {
-      "dim": "country",
-      "filter": {
-        "country": {"un_state": true}
+  "model": {
+    "markers": {
+      "bubble": {
+        "data": {
+          "source": "sg",
+          "space": ["country", "time"],
+          "filter": {
+            "dimensions": { "country": { "un_state": true } }
+          }
+        },
+        "encoding": {
+          "selected": {
+            "modelType": "selection"
+          },
+          "highlighted": {
+            "modelType": "selection"
+          },
+          "size": {
+            "data": {
+              "concept": "population_total"
+            },
+            "scale": {
+              "modelType": "size",
+              "allowedTypes": ["linear", "log", "genericLog", "pow"]
+            }
+          },
+          "lat": {
+            "data": {
+              "space": ["country"],
+              "concept": "latitude"
+            }
+          },
+          "lon": {
+            "data": {
+              "space": ["country"],
+              "concept": "longitude"
+            }
+          },
+          "color": {
+            "data": {
+              "space": ["country"],
+              "concept": "world_4region"
+            },
+            "scale": {
+              "modelType": "color",
+              "type": "ordinal",
+              "domain": null,
+              "range": null,
+              "zoomed": null,
+              "zeroBaseline": false,
+              "clamp": false,
+              "allowedTypes": null
+            }
+          },
+          "label": {
+            "data": {
+              "space": ["country"],
+              "modelType": "entityPropertyDataConfig",
+              "concept": "name"
+            }
+          },
+          "size_label": {
+            "data": {
+              "constant": "_default"
+            },
+            "scale": {
+              "modelType": "size"
+            }
+          },
+          "frame": {
+            "modelType": "frame",
+            "speed": 200,
+            "value": "2019",
+            "splash": true,
+            "data": {
+              "concept": "time"
+            }
+          },
+          "order": {
+            "modelType": "order",
+            "direction": "desc",
+            "data": {
+              "ref": "markers.bubble.config.encoding.size.data"
+            }
+          },
+          "repeat": {
+            "modelType": "repeat",
+            "allowEnc": ["size"]
+          }
+        },
+        "requiredEncodings": ["lat", "lon", "size"]
       },
-      "show": {}
-    },
-    "entities_colorlegend": {
-      "dim": "world_4region"
-    },
-    "marker": {
-      "space": ["entities", "time"],
-      "label": {
-        "use": "property",
-        "which": "name"
-      },
-      "size": {
-        "use": "indicator",
-        "which": "population_total",
-        "scaleType": "linear",
-        "domainMin": 15,
-        "domainMax": 1400000000,
-        "allow": {
-          "scales": ["linear"],
-          "names": ["_default"]
+      "legend": {
+        "data": {
+          "ref": {
+            "transform": "entityConceptSkipFilter",
+            "path": "markers.bubble.encoding.color"
+          }
+        },
+        "encoding": {
+          "color": {
+            "data": {
+              "concept": { "ref": "markers.bubble.encoding.color.data.concept" },
+              "constant": { "ref": "markers.bubble.encoding.color.data.constant" }
+            },
+            "scale": {
+              "modelType": "color",
+              "palette": { "ref": "markers.bubble.encoding.color.scale.palette" },
+              "domain": null,
+              "range": null,
+              "type": null,
+              "zoomed": null,
+              "zeroBaseline": false,
+              "clamp": false,
+              "allowedTypes": null
+            }
+          },
+          "name": { "data": { "concept": "name" } },
+          "rank": { "data": { "concept": "rank" } },
+          "map": { "data": { "concept": "shape_lores_svg" } }
         }
-      },
-      "hook_lat": {
-        "use": "property",
-        "which": "latitude",
-        "_important": true
-      },
-      "hook_lng": {
-        "use": "property",
-        "which": "longitude",
-        "_important": true
-      },
-      "color": {
-        "use": "property",
-        "which": "world_4region",
-        "scaleType": "ordinal",
-        "syncModels": ["marker_colorlegend"]
-      }
-    },
-    "marker_colorlegend":{
-      "space": ["entities_colorlegend"],
-      "opacityRegular": 0.8,
-      "opacityHighlightDim": 0.3,
-      "label": {
-        "use": "property",
-        "which": "name"
-      },
-      "hook_rank": {
-        "use": "property",
-        "which": "rank"
-      },
-      "hook_geoshape": {
-        "use": "property",
-        "which": "shape_lores_svg"
       }
     }
   },
   "ui": {
-    "chart": {
-      "showForecastOverlay": true
+    "locale": { "id": "en" },
+    "layout": { "projector": false },
+
+    "buttons": {
+      "buttons": ["colors", "find", "moreoptions", "presentation", "sidebarcollapse", "fullscreen"]
     },
-    "treemenu": {
-      "folderStrategyByDataset": {
-        "data": "spread",
-        "data_fasttrack": "spread",
-        "data_wdi": "folder:other_datasets"
+    "dialogs": {
+      "dialogs": {
+        "popup": ["colors", "find", "moreoptions"],
+        "sidebar": ["colors", "find", "size"],
+        "moreoptions": [
+          "opacity",
+          "speed",
+          "size",
+          "colors",
+          "label",
+          "technical",
+          "repeat",
+          "presentation",
+          "about"
+        ]
       }
     },
-    "datawarning": {
+    "chart": {
+      "showForecast": false,
+      "showForecastOverlay": true,
+      "pauseBeforeForecast": true,
+      "endBeforeForecast": "2019",
+      "opacityHighlight": 1.0,
+      "opacitySelect": 1.0,
+      "opacityHighlightDim": 0.1,
+      "opacitySelectDim": 0.3,
+      "opacityRegular": 0.8,
+      "labels": {
+        "enabled": true,
+        "dragging": true,
+        "removeLabelBox": false
+      },
+      "superhighlightOnMinimapHover": false,
+      "map": {
+        "path": null,
+        "colorGeo": false,
+        "preserveAspectRatio": false,
+        "scale": 1.1,
+        "offset": {
+          "top": 0.05,
+          "right": 0,
+          "bottom": -0.07,
+          "left": -0.15
+        },
+        "projection": "geoAitoff",
+        "topology": {
+          "path": "assets/world-50m.json",
+          "objects": {
+            "geo": "land",
+            "boundaries": "countries"
+          },
+          "geoIdProperty": null
+        }
+      }
+    },
+    "data-warning": {
       "doubtDomain": [1800, 1950, 2015],
       "doubtRange": [1.0, 0.3, 0.2]
     },
-    "map": {
-      "scale": 1,
-      "preserveAspectRatio": false,
-      "offset": {
-        "top": 0.05,
-        "bottom": -0.12
+    "tree-menu": {
+      "folderStrategyByDataset": {
+        "sg": "spread",
+        "fasttrack": "spread",
+        "wdi": "folder:other_datasets"
       }
-    },
-    "splash": true
+    }
   }
 }
