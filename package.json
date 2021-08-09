@@ -1,29 +1,53 @@
 {
-  "name": "vizabi-config-systema_globalis",
-  "version": "3.0.1",
-  "description": "This is a collection of vizabi tools configs for the specific dataset open-numbers/ddf--gapminder--systema_globalis",
+  "name": "@gapminder/tools-page-chart-configs",
+  "version": "3.0.2",
+  "description": "This is a collection of chart configs for gapminder.org/tools page ",
   "main": "index.js",
   "files": [
     "dist"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
+    "prepublishOnly": "npm run build",
     "build": "node build",
     "deploy": "node deploy"
   },
+  "keywords": [
+  ],
+  "author": {
+    "name": "Gapminder Foundation",
+    "url": "https://www.gapminder.org",
+    "email": "info@gapminder.org"
+  },
+  "contributors": [
+    {
+      "name": "Jasper",
+      "url": "https://github.com/jheeffer"
+    },
+    {
+      "name": "Angie",
+      "url": "https://github.com/angieskazka"
+    },
+    {
+      "name": "Dima",
+      "url": "https://github.com/dab2000"
+    },
+    {
+      "name": "Ola",
+      "url": "https://github.com/olarosling"
+    }
+  ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vizabi/vizabi-config-systema_globalis.git"
+    "url": "git+https://github.com/Gapminder/tools-page-chart-configs.git"
   },
-  "keywords": [
-    "vizabi",
-    "config"
-  ],
-  "author": "Angie",
-  "license": "BSD-3-Clause",
+  "homepage": "https://github.com/Gapminder/tools-page-chart-configs#readme",
+  "license": "CC-BY-4.0",
   "bugs": {
-    "url": "https://github.com/vizabi/vizabi-config-systema_globalis/issues"
+    "url": "https://github.com/Gapminder/tools-page-chart-configs/issues"
   },
-  "homepage": "https://github.com/vizabi/vizabi-config-systema_globalis#readme",
   "devDependencies": {
     "compare-version": "^0.1.2",
     "rimraf": "^2.6.2",
