@@ -17,10 +17,10 @@
           "space": ["country", "time"]
         },
         "encoding": {
-          "unstate": {
+          "show": {
+            "modelType": "selection",
             "data": {
-              "space": ["country"],
-              "concept": "un_state"
+              "filter": { "dimensions": { "country": { "un_state": 1 } } }
             }
           },
           "selected": {
@@ -73,7 +73,7 @@
           "frame": {
             "modelType": "frame",
             "speed": 200,
-            "value": "2019",
+            "value": "2021",
             "data": {
               "concept": "time"
             }
@@ -130,7 +130,7 @@
       "dialogs": {
         "popup": ["colors", "find", "moreoptions"],
         "sidebar": ["colors", "find"],
-        "moreoptions": ["opacity", "speed", "colors", "axes", "repeat", "presentation", "about"]
+        "moreoptions": ["opacity", "speed", "colors", "axes", "technical", "repeat", "presentation", "about"]
       },
       "find": {
         "panelMode": "show",
@@ -143,7 +143,7 @@
       "showForecast": false,
       "showForecastOverlay": true,
       "pauseBeforeForecast": true,
-      "endBeforeForecast": "2019",
+      "endBeforeForecast": "2021",
       "opacityHighlight": 1.0,
       "opacitySelect": 1.0,
       "opacityHighlightDim": 0.1,
@@ -165,9 +165,10 @@
     },
     "data-warning": {
       "doubtDomain": [1800, 1950, 2015],
-      "doubtRange": [1.0, 0.3, 0.2]
+      "doubtRange": [0, 0, 0]
     },
     "tree-menu": {
+      "showDataSources": false,
       "folderStrategyByDataset": {
         "sg": "spread",
         "fasttrack": "spread",

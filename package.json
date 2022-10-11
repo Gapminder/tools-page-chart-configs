@@ -1,6 +1,6 @@
 {
   "name": "@gapminder/tools-page-chart-configs",
-  "version": "3.0.2",
+  "version": "3.1.1",
   "description": "This is a collection of chart configs for gapminder.org/tools page ",
   "main": "index.js",
   "files": [

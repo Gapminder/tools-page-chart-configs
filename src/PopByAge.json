@@ -17,6 +17,12 @@
         },
         "requiredEncodings": ["x"],
         "encoding": {
+          "show": {
+            "modelType": "selection",
+            "data": {
+              "filter": { "dimensions": { "geo": { "$not": { "is--country": 1, "un_state": 0 } } } }
+            }
+          },
           "selected": {
             "modelType": "selection"
           },
@@ -66,7 +72,8 @@
           },
           "frame": {
             "modelType": "frame",
-            "value": "2019",
+            "value": "2021",
+            "playbackSteps": 1,
             "splash": true,
             "data": {
               "concept": "year",
@@ -88,11 +95,22 @@
               "constant": "true"
             }
           },
-          "facet": {
-            "modelType": "grouping",
-            "data": { "concept": "geo" },
-            "rowEncoding": "side",
-            "columnEncoding": "row"
+          "stack": {
+            "data": {
+              "constant": "true"
+            }
+          },
+          "repeat": {
+            "modelType": "repeat",
+            "allowEnc": ["x"]
+          },
+          "facet_column": {
+            "data": {
+              "modelType": "entityMembershipDataConfig",
+              "space": ["geo"],
+              "constant": null,
+              "concept": "geo"
+            }
           }
         }
       },
@@ -140,7 +158,7 @@
       "showForecast": true,
       "showForecastOverlay": false,
       "pauseBeforeForecast": false,
-      "endBeforeForecast": "2020"
+      "endBeforeForecast": "2021"
     },
     "buttons": {
       "buttons": ["colors", "find", "lock", "inpercent", "moreoptions", "sidebarcollapse", "fullscreen"]
