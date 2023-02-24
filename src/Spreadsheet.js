@@ -1,15 +1,15 @@
-{ 
-  "model": {
-    "markers": {
+VIZABI_MODEL = {
+  model: {
+    markers: {
       "spreadsheet": {
-        "data": {
-          "source": "sg"
+        data: {
+          source: "sg"
         }
       }
     }
   },
-  "ui": {
-    "chart": {},
+  ui: {
+    chart: {},
     "tree-menu": {
       "showDataSources": false,
       "folderStrategyByDataset": {
@@ -19,4 +19,4 @@
       }
     }
   }
-}
+};

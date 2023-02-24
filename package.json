@@ -1,18 +1,17 @@
 {
   "name": "@gapminder/tools-page-chart-configs",
-  "version": "3.1.1",
-  "description": "This is a collection of chart configs for gapminder.org/tools page ",
+  "version": "4.0.0",
+  "description": "This is a collection of chart configs for gapminder.org/tools page and gapminder offline app",
   "main": "index.js",
   "files": [
-    "dist"
+    "src"
   ],
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
     "prepublishOnly": "npm run build",
-    "build": "node build",
-    "deploy": "node deploy"
+    "build": "cd src && node -c BarRank.js && node -c BubbleChart.js && node -c BubbleMap.js && node -c LineChart.js && node -c MountainChart.js && node -c PopByAge.js && node -c Spreadsheet.js"
   },
   "keywords": [
   ],
@@ -49,8 +48,5 @@
     "url": "https://github.com/Gapminder/tools-page-chart-configs/issues"
   },
   "devDependencies": {
-    "compare-version": "^0.1.2",
-    "rimraf": "^2.6.2",
-    "shelljs": "^0.7.8"
   }
 }
